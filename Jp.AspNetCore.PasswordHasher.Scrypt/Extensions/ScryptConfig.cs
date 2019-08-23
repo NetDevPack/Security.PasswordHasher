@@ -17,6 +17,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 options.MemLimit = builder.Options.MemLimit;
                 options.OpsLimit = builder.Options.OpsLimit;
                 options.WorkFactor = builder.Options.WorkFactor;
+                options.SaltRevision = builder.Options.SaltRevision;
             });
             return builder.Services.AddScoped<IPasswordHasher<TUser>, ScryptPasswordHasher<TUser>>();
         }

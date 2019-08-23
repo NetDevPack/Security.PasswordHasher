@@ -1,15 +1,15 @@
-﻿using Jp.AspNetCore.PasswordHasher.Core;
+﻿using Jp.AspNetCore.PasswordHasher.Bcrypt;
+using Jp.AspNetCore.PasswordHasher.Core;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace Jp.AspNetCore.PasswordHasher.Bcrypt.Extensions
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class BCryptConfig
     {
         /// <summary>
         /// Use Scrypt password hashing algorithm.
         /// </summary>
-        public static IServiceCollection UseScrypt<TUser>(this IPasswordHashBuilder builder) where TUser : class
+        public static IServiceCollection UseBcrypt<TUser>(this IPasswordHashBuilder builder) where TUser : class
         {
             builder.Services.Configure<ImprovedPasswordHasherOptions>(options =>
             {
@@ -17,6 +17,7 @@ namespace Jp.AspNetCore.PasswordHasher.Bcrypt.Extensions
                 options.MemLimit = builder.Options.MemLimit;
                 options.OpsLimit = builder.Options.OpsLimit;
                 options.WorkFactor = builder.Options.WorkFactor;
+                options.SaltRevision = builder.Options.SaltRevision;
             });
             return builder.Services.AddScoped<IPasswordHasher<TUser>, BCryptPasswordHasher<TUser>>();
         }
