@@ -46,8 +46,8 @@ namespace Jp.AspNetCore.PasswordHasher.Identity.Demo
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.UpgradePasswordSecurity()
-                    .WithStrenghten(PasswordHasherStrenght.Moderate)
-                    .UseScrypt<IdentityUser>();
+                    .WithStrenghten(PasswordHasherStrenght.Sensitive)
+                    .UseArgon2<IdentityUser>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
