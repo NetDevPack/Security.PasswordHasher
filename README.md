@@ -1,4 +1,7 @@
+
 # Improved PasswordHasher
+![Nuget](https://img.shields.io/nuget/v/JpProject.AspNetCore.PasswordHasher.Argon2)![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/brunohbrito/PasswordHasher/9)[![Build Status](https://dev.azure.com/brunohbrito/PasswordHasher/_apis/build/status/brunohbrito.JPProject.AspNetCore.PasswordHasher?branchName=master)](https://dev.azure.com/brunohbrito/PasswordHasher/_build/latest?definitionId=9&branchName=master)
+
 <img align="right" width="100px" src="https://jpproject.blob.core.windows.net/images/helldog.png" />
 Custom PasswordHasher for ASP.NET Core Identity. There are 3 options: Argon2id, Scrypt and Bcrypt.
 
@@ -6,12 +9,14 @@ A strong password storage strategy is critical to mitigating data breaches that 
 
 ## Table of Contents ##
 
-- [Why](#why)
+- [Improved PasswordHasher](#improved-passwordhasher)
+  - [Table of Contents](#table-of-contents)
+- [Why?](#why)
 - [Download](#download)
-- [Configure](#Configure)
-    - [Argon2](#argon2)
-    - [bcrypt](#bcrypt)
-    - [scrypt](#scrypt)
+- [Configure](#configure)
+  - [Argon2](#argon2)
+  - [BCrypt](#bcrypt)
+  - [Scrypt](#scrypt)
 - [Playground](#playground)
 - [License](#license)
 
