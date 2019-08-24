@@ -29,24 +29,31 @@ steps:
     projects: './src'
     arguments: '-c $(buildConfiguration) --no-restore'
 
-- script: |
-    dotnet tool install dotnet-reportgenerator-globaltool --tool-path .
-    mkdir $(Build.SourcesDirectory)\results 
-
-    dotnet test --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura .\tests\JpProject.AspNetCore.PasswordHasher.Tests
-
-    copy $(Build.SourcesDirectory)\tests\JpProject.AspNetCore.PasswordHasher.Tests\coverage.cobertura.xml $(Build.SourcesDirectory)\results
-    reportgenerator "-reports:$(Build.SourcesDirectory)\results\coverage.cobertura.xml" "-targetdir:results" "-reporttypes:HTMLInline;HTMLChart"
-  displayName: '.NET Core - Run Tests'
-
-- task: PublishTestResults@2
+# Run all tests with "/p:CollectCoverage=true /p:CoverletOutputFormat=cobertura" to generate the code coverage file
+- task: DotNetCoreCLI@2
+  displayName: '.NET Core - Tests'
   inputs:
-    testRunner: VSTest
-    testResultsFiles: '**/*.trx'
+    command: test
+    arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
+    projects: 'tests/**/*.csproj'
+    nobuild: true
 
+- task: Palmmedia.reportgenerator.reportgenerator-build-release-task.reportgenerator@4
+  displayName: ReportGenerator
+  inputs:
+    reports: '$(Build.SourcesDirectory)/tests/**/coverage.cobertura.xml'
+    targetdir: '$(Build.SourcesDirectory)/CodeCoverage'
+    reporttypes: 'HtmlInline_AzurePipelines;Cobertura;Badges'
+    assemblyfilters: '-xunit*'
+ 
+# Publish the code coverage result (summary and web site)
+# The summary allows to view the coverage percentage in the summary tab
+# The web site allows to view which lines are covered directly in Azure Pipeline
 - task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage'
   inputs:
-    summaryFileLocation: $(Build.SourcesDirectory)\results\coverage.cobertura.xml
-    reportDirectory: $(Build.SourcesDirectory)\results
-    codecoverageTool: cobertura
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
+    reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
+
 
