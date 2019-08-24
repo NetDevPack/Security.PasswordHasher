@@ -30,6 +30,11 @@ Wanna know more why Hash password? [Read here](https://crackstation.net/hashing-
 
 The latest stable release of the JPProject PasswordHasher is available on NuGet or can be downloaded from GitHub.
 
+Versions:
+* [Argon2](https://www.nuget.org/packages/JpProject.AspNetCore.PasswordHasher.Argon2/) (Most recommended by OWASP)
+* [BCrypt](https://www.nuget.org/packages/JpProject.AspNetCore.PasswordHasher.Bcrypt/)
+* [Scrypt](https://www.nuget.org/packages/JpProject.AspNetCore.PasswordHasher.Scrypt/)
+
 ----------------
 
 # Configure #
