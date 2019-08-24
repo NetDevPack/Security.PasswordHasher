@@ -1,5 +1,4 @@
 # Improved PasswordHasher
--------------------------
 
 Custom PasswordHasher for ASP.NET Core Identity. There are 3 options: Argon2id, Scrypt and Bcrypt.
 
@@ -134,6 +133,6 @@ Wanna see Argon2, Scrypt or BCrypt in action?
 ---------------
 
 # License
----------
+
 JPProject.PasswordHasher is Open Source software and is released under the MIT license. This license allow the use of JPProject.PasswordHasher in free and commercial applications and libraries without restrictions.
 
