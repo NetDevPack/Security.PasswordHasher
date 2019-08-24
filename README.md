@@ -1,5 +1,5 @@
 # Improved PasswordHasher
-
+<img align="right" width="100px" src="https://jpproject.blob.core.windows.net/images/helldog.png" />
 Custom PasswordHasher for ASP.NET Core Identity. There are 3 options: Argon2id, Scrypt and Bcrypt.
 
 A strong password storage strategy is critical to mitigating data breaches that put the reputation of any organization in danger. Hashing is the foundation of secure password storage.
