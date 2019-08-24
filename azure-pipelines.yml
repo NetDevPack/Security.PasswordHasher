@@ -33,10 +33,10 @@ steps:
     dotnet tool install dotnet-reportgenerator-globaltool --tool-path .
     mkdir $(Build.SourcesDirectory)\results 
 
-    dotnet test .\src\JpProject.PasswordHasher.sln --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura  PasswordHasher.Test
-    dotnet test .\src\JpProject.PasswordHasher.sln --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:MergeWtih=$(Build.SourcesDirectory)\src\PasswordHasher.Test\coverage.cobertura.xml PasswordHasherRepository.Test
-    copy $(Build.SourcesDirectory)\src\PasswordHasher.Test\coverage.cobertura.xml $(Build.SourcesDirectory)\results
-    reportgenerator "-reports:$(Build.SourcesDirectory)\src\PasswordHasherRepository.Test\coverage.cobertura.xml" "-targetdir:results" "-reporttypes:HTMLInline;HTMLChart"
+    dotnet test --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura .\tests\JpProject.AspNetCore.PasswordHasher.Tests
+
+    copy $(Build.SourcesDirectory)\tests\JpProject.AspNetCore.PasswordHasher.Tests\coverage.cobertura.xml $(Build.SourcesDirectory)\results
+    reportgenerator "-reports:$(Build.SourcesDirectory)\results\coverage.cobertura.xml" "-targetdir:results" "-reporttypes:HTMLInline;HTMLChart"
   displayName: '.NET Core - Run Tests'
 
 - task: PublishTestResults@2
