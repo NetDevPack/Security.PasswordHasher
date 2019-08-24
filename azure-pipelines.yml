@@ -31,8 +31,8 @@ steps:
 
 - script: |
     mkdir $(Build.SourcesDirectory)\results
-    dotnet test .\src\JpProject.PasswordHasher.sln --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura  PasswordHasher.Test
-    dotnet test .\src\JpProject.PasswordHasher.sln --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:MergeWtih=$(Build.SourcesDirectory)\PasswordHasher.Test\coverage.cobertura.xml PasswordHasherRepository.Test
+    dotnet test .\src\JpProject.PasswordHasher.sln --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura  ..\PasswordHasher.Test
+    dotnet test .\src\JpProject.PasswordHasher.sln --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:MergeWtih=$(Build.SourcesDirectory)\PasswordHasher.Test\coverage.cobertura.xml ..\PasswordHasherRepository.Test
     copy $(Build.SourcesDirectory)\PasswordHasher.Test\coverage.cobertura.xml $(Build.SourcesDirectory)\results
     dotnet tool install dotnet-reportgenerator-globaltool --tool-path . --version 4.0.0-rc4
     .\reportgenerator "-reports:$(Build.SourcesDirectory)\PasswordHasherRepository.Test\coverage.cobertura.xml" "-targetdir:results" "-reporttypes:HTMLInline;HTMLChart"
