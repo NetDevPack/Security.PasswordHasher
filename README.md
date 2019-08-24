@@ -8,6 +8,7 @@ A strong password storage strategy is critical to mitigating data breaches that 
 ## Table of Contents ##
 
 - [Why](#why)
+- [Download](#download)
 - [Configure](#Configure)
     - [Argon2](#argon2)
     - [bcrypt](#bcrypt)
@@ -15,14 +16,23 @@ A strong password storage strategy is critical to mitigating data breaches that 
 - [Playground](#playground)
 - [License](#license)
 
-## Why? ##
+------------------
+
+# Why? #
 
 ASP.NET Core Identity uses PBKDF2. With HMAC-SHA256. A 128-bit salt. 256-bit subkey and 10.000 iterations. It's FIPS compliant and recommended by NIST. Whilst it's considered good enough, isn't the best choice against newer atack. Such as GPU based.
 
 Wanna know more why Hash password? [Read here](https://crackstation.net/hashing-security.htm) or [here](https://auth0.com/blog/hashing-passwords-one-way-road-to-security/).
 
-## Configure ##
-----------------------
+----------------
+
+# Download #
+
+The latest stable release of the JPProject PasswordHasher is available on NuGet or can be downloaded from GitHub.
+
+----------------
+
+# Configure #
 
 There are specific configuration for each one of algorithms.
 
@@ -106,9 +116,9 @@ Or more advanced options:
                     .WithOpsLimit(4L)
                     .UseScrypt<IdentityUser>();
 ```
+------------
 
 # Playground
--------------
 
 Wanna see Argon2, Scrypt or BCrypt in action?
 
@@ -116,6 +126,7 @@ Wanna see Argon2, Scrypt or BCrypt in action?
 * [Bcrypt Generator](https://bcrypt-generator.com/)
 * [Scrypt Generator](https://scrypt-generator.com/)
 
+---------------
 
 # License
 ---------
