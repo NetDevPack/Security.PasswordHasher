@@ -2,7 +2,7 @@ $version = $args[0]
 
 if (!$version)
 {
-    $version = '3.0.2-prerelease1.' + $([System.DateTime]::Now.ToString('MM-dd-HHmmss'))
+    $version = '3.1.1-prerelease1.' + $([System.DateTime]::Now.ToString('MM-dd-HHmmss'))
 }
 Write-Host 'Version: ' $version 
 get-childitem * -include *.nupkg | remove-item
