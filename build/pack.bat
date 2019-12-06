@@ -1,1 +1,0 @@
-dotnet pack ..\src\JpProject.PasswordHasher.sln -o .\ -p:PackageVersion=3.0.1
