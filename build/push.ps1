@@ -9,5 +9,12 @@ if($prod)
 $files = Get-ChildItem -recurse -filter *.nupkg
 
 foreach ($file in $files) {
-	nuget add $file.Name -source $source
+	if($prod)
+	{
+		dotnet nuget push $file.Name -s $source
+	}
+	else
+	{
+		nuget add $file.Name -source $source
+	}
 }
