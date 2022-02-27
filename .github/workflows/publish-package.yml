@@ -11,25 +11,13 @@ env:
 jobs:
   publish:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: src
+        
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 5.0.x
-
-      - name: Setup .NET Core 3.1
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1.x
-          
-      - name: Setup .NET Core 2.1
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 2.1.x
 
       - name: Setup .NET 6
         uses: actions/setup-dotnet@v1
