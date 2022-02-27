@@ -14,7 +14,7 @@ jobs:
     defaults:
       run:
         working-directory: src
-        
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -28,7 +28,7 @@ jobs:
         run: dotnet restore 
 
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build -c Release --no-restore
 
       - name: Test
         run: dotnet test
