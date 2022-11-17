@@ -1,3 +1,15 @@
+# [7.0.0](https://github.com/NetDevPack/Security.PasswordHasher/compare/v6.0.0...v7.0.0) (2022-11-17)
+
+
+### Features
+
+* net 7 ([44b25ef](https://github.com/NetDevPack/Security.PasswordHasher/commit/44b25efb7b158c0b1a30aecc539af4e9548a3280))
+
+
+### BREAKING CHANGES
+
+* net 7
+
 # [6.0.0](https://github.com/NetDevPack/Security.PasswordHasher/compare/v5.1.1...v6.0.0) (2022-02-27)
 
 
