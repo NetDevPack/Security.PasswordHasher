@@ -1,3 +1,10 @@
+# [7.1.0](https://github.com/NetDevPack/Security.PasswordHasher/compare/v7.0.1...v7.1.0) (2024-02-08)
+
+
+### Features
+
+* .NET 8 release ([8152a91](https://github.com/NetDevPack/Security.PasswordHasher/commit/8152a911955ae7735daee8737e907a64ada5d5a8))
+
 ## [7.0.1](https://github.com/NetDevPack/Security.PasswordHasher/compare/v7.0.0...v7.0.1) (2023-03-18)
 
 
