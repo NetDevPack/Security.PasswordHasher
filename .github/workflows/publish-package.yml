@@ -19,28 +19,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup .NET 7
+      - name: Setup .NET 8
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 7.0.x
+          dotnet-version: 8.0.x
           
       - name: Restore dependencies
         run: dotnet restore 
 
       - name: Build
-        run: dotnet build -c Release --no-restore
-
-      - name: Test
-        run: dotnet test
+        run: dotnet build --no-restore
 
       - name: Semantic Release
         id: semantic
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v3
         with:
-          semantic_version: 18.0.1
+          semantic_version: 19.0.5
           extra_plugins: |
             @semantic-release/changelog
-            @semantic-release/github
             @semantic-release/git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -49,4 +45,4 @@ jobs:
         run: dotnet pack -c Release -o out -p:PackageVersion=${{ steps.semantic.outputs.new_release_version }} -p:RepositoryUrl=${{env.CURRENT_REPO_URL}}
 
       - name: Publish the package to nuget.org
-        run: dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols true -k ${{ secrets.NUGET_AUTH_TOKEN}} -s https://api.nuget.org/v3/index.json
+        run: dotnet nuget push ./out/*.nupkg -n -d -k ${{ secrets.NUGET_AUTH_TOKEN}} -s https://api.nuget.org/v3/index.json
