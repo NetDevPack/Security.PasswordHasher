@@ -1,3 +1,11 @@
+## [7.0.1](https://github.com/NetDevPack/Security.PasswordHasher/compare/v7.0.0...v7.0.1) (2023-03-18)
+
+
+### Bug Fixes
+
+* spell error ([a53a702](https://github.com/NetDevPack/Security.PasswordHasher/commit/a53a702ccef03181c7f4b3efa9e2cd205557fafd))
+* spell error Strenght -> Strength ([835fb82](https://github.com/NetDevPack/Security.PasswordHasher/commit/835fb828d75b7fdfa7d329114169290e91231bf1)), closes [#213](https://github.com/NetDevPack/Security.PasswordHasher/issues/213)
+
 # [7.0.0](https://github.com/NetDevPack/Security.PasswordHasher/compare/v6.0.0...v7.0.0) (2022-11-17)
 
 
