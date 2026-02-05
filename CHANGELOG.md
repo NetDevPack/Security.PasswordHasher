@@ -1,3 +1,10 @@
+## [7.1.1](https://github.com/NetDevPack/Security.PasswordHasher/compare/v7.1.0...v7.1.1) (2026-02-05)
+
+
+### Bug Fixes
+
+* removed non supported .NET versions ([98e38c8](https://github.com/NetDevPack/Security.PasswordHasher/commit/98e38c896cd46f8cef717bd60287e82786832240))
+
 # [7.1.0](https://github.com/NetDevPack/Security.PasswordHasher/compare/v7.0.1...v7.1.0) (2024-02-08)
 
 
