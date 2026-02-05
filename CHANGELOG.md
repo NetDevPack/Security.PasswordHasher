@@ -1,3 +1,10 @@
+## [7.1.2](https://github.com/NetDevPack/Security.PasswordHasher/compare/v7.1.1...v7.1.2) (2026-02-05)
+
+
+### Bug Fixes
+
+* remove readme ([31fe8a5](https://github.com/NetDevPack/Security.PasswordHasher/commit/31fe8a5a03de78a89db6d0f247801a6ad3ba67fa))
+
 ## [7.1.1](https://github.com/NetDevPack/Security.PasswordHasher/compare/v7.1.0...v7.1.1) (2026-02-05)
 
 
