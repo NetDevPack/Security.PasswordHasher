@@ -1,8 +1,11 @@
-name: Pull Request Analisys
+name: Pull Request Analysis
 
 on:
   pull_request:
     branches: [ master ]
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -13,21 +16,25 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup .NET SDKs
-        uses: actions/setup-dotnet@v3
+        uses: actions/checkout@v5
         with:
-          dotnet-version: |
-            8.0.x
-            9.0.x
-            10.0.x
-          
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+
       - name: Restore dependencies
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build --no-restore -c Release
 
       - name: Test
-        run: dotnet test --no-build
+        run: dotnet test --no-build -c Release
+
+      - name: Check vulnerable packages
+        run: |
+          dotnet list package --vulnerable --include-transitive 2>&1 | tee vulnerable.txt
+          ! grep -q "has the following vulnerable packages" vulnerable.txt

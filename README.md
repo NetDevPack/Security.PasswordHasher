@@ -42,6 +42,15 @@ Versions:
 * [BCrypt](https://www.nuget.org/packages/NetDevPack.Security.PasswordHasher.Bcrypt/)
 * [Scrypt](https://www.nuget.org/packages/NetDevPack.Security.PasswordHasher.Scrypt/)
 
+## Compatibility ##
+
+| Package version | Target framework |
+| --------------- | ---------------- |
+| 8.x             | .NET 10 (LTS)    |
+| 7.x             | .NET 8, .NET 9, .NET 10 |
+
+Hashes created by 7.x are still valid in 8.x. The test suite checks stored Argon2id, scrypt, bcrypt and ASP.NET Identity v2/v3 hashes on every build.
+
 ----------------
 
 # Configure #

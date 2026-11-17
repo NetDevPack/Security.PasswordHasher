@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using FluentAssertions;
+using AwesomeAssertions;
 using NetDevPack.Security.PasswordHasher.Core;
 using NetDevPack.Security.PasswordHasher.Scrypt;
 using NetDevPack.Security.PasswordHasher.Tests.Fakers;

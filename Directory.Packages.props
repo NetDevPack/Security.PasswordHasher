@@ -1,0 +1,34 @@
+﻿<Project>
+  <!--
+    Central Package Management: every version lives here, csproj files only declare <PackageReference Include="..." />.
+    Microsoft.* packages that ship with .NET follow the target framework (net10.0 -> 10.0.x).
+  -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Libraries -->
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.Extensions.Identity.Core" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.Extensions.Options" Version="10.0.15" />
+    <PackageVersion Include="Sodium.Core" Version="1.4.1" />
+    <PackageVersion Include="BCrypt.Net-Core" Version="1.6.0" />
+
+    <!-- Demo -->
+    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
+
+    <!-- Tests -->
+    <PackageVersion Include="AwesomeAssertions" Version="9.6.0" />
+    <PackageVersion Include="Bogus" Version="35.6.5" />
+    <PackageVersion Include="Bogus.Tools.Analyzer" Version="35.6.5" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.15" />
+    <PackageVersion Include="xunit.v3" Version="4.0.3" />
+  </ItemGroup>
+</Project>
