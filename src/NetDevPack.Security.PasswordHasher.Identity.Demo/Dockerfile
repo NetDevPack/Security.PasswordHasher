@@ -1,4 +1,5 @@
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+# Build context is the repository root (Directory.Build.props, Directory.Packages.props, global.json):
+#   docker build -f src/NetDevPack.Security.PasswordHasher.Identity.Demo/Dockerfile .
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 WORKDIR /app
@@ -6,11 +7,11 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
-WORKDIR /src
-COPY ["NetDevPack.Security.PasswordHasher.Identity.Demo/NetDevPack.Security.PasswordHasher.Identity.Demo.csproj", "NetDevPack.Security.PasswordHasher.Identity.Demo/"]
-RUN dotnet restore "NetDevPack.Security.PasswordHasher.Identity.Demo/NetDevPack.Security.PasswordHasher.Identity.Demo.csproj"
-COPY . .
-WORKDIR "/src/NetDevPack.Security.PasswordHasher.Identity.Demo"
+WORKDIR /repo
+COPY ["Directory.Build.props", "Directory.Packages.props", "global.json", "icon.png", "README.md", "./"]
+COPY ["src/", "src/"]
+RUN dotnet restore "src/NetDevPack.Security.PasswordHasher.Identity.Demo/NetDevPack.Security.PasswordHasher.Identity.Demo.csproj"
+WORKDIR "/repo/src/NetDevPack.Security.PasswordHasher.Identity.Demo"
 RUN dotnet build "NetDevPack.Security.PasswordHasher.Identity.Demo.csproj" -c Release -o /app/build -f net10.0
 
 FROM build AS publish
